@@ -121,7 +121,7 @@ du -sh discord-layer.zip
 2. Name：`discord-bot-layer`（自取）
 3. 選擇 `Upload a .zip file`，上傳 `discord-layer.zip` （你剛剛透過終端機壓縮的
 4. Compatible runtimes：勾選 `Python 3.12`
-![create_layer](./images/create_layer.png)
+![create_layer](./images/create_layers.png)
 5. 點選 **Create**，記下 Layer ARN （另外記下來，我推薦notepad
 
 ---
