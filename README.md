@@ -16,7 +16,7 @@ cd
 python -m venv venv
 
 # Power Shell
-.\venv\Scripts\Activate.psl
+.\venv\Scripts\Activate.ps1
 # CMD
 venv\Scripts\activate.bat （出現(venv) 在前面就好了喔）
 
@@ -58,14 +58,19 @@ AWS_REGION=us-east-1
 1. 點選你的應用程式 → **Bot**
 2. 往下找到 **Privileged Gateway Intents**
 3. 開啟 **Message Content Intent**（沒有這個，Bot 看不到訊息內容）
+![discord_intent](./images/discord_intent.png)
 4. 點選 **Save Changes**
 
 #### 步驟 5：將 Bot 加入伺服器
 
 1. Developer Portal → **OAuth2** → **URL Generator**
 2. Scopes 勾選：`bot`
+![bot_command](./images/bot_command.png)
 3. Bot Permissions 勾選：`Send Messages`、`Read Message History`、`Embed Links`
+![bot_permission](./images/bot_permission.png)
 4. 複製產生的 URL，在瀏覽器開啟，選擇你的伺服器加入
+![copy_url](./images/copy_url.png)
+![add_to_server](./images/add_to_server.png)
 
 #### 步驟 6：啟動機器人
 

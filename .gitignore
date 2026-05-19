@@ -1,0 +1,40 @@
+# 虛擬環境
+venv/
+.venv/
+env/
+
+# 環境變數（含 Token，絕對不能上傳）
+.env
+.env.local
+.env.*.local
+
+# Python 快取
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# 套件安裝資訊
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# IDE / 編輯器設定
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# 測試與覆蓋率報告
+.pytest_cache/
+.coverage
+htmlcov/
+
+# AWS / Lambda 打包產物
+*.zip
+package/
+
+.DS_Store
