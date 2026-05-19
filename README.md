@@ -84,15 +84,7 @@ python bot.py
 目前登入身分：你的Bot名稱#1234
 ```
 
-### 完整部署步驟(aws & discord)
-
-#### 前置作業：Discord 開發者設定
-
-1. 前往 [Discord Developer Portal](https://discord.com/developers/applications) → 建立 New Application
-2. **General Information** 頁面：複製 `Application ID` 和 `Public Key` 備用
-3. **Bot** 頁面：點選 `Reset Token` 取得 Bot Token（只顯示一次，請立刻保存）
-4. 確認 `Public Bot` 是否已開啟（讓 Bot 可被加入伺服器）
-
+### 部署aws (很複雜很累)
 ---
 
 #### 步驟 1：打包 Lambda Layer
@@ -125,6 +117,8 @@ du -sh discord-layer.zip
 **在 AWS Console 建立 Layer：**
 
 1. 前往 **Lambda → Layers → Create layer**
+![function](./images/function.png)
+
 2. Name：`discord-bot-layer`（自取）
 3. 選擇 `Upload a .zip file`，上傳 `discord-layer.zip`
 4. Compatible runtimes：勾選 `Python 3.12`
