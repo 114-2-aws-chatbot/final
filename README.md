@@ -40,8 +40,8 @@ cp .env.example ./lambda_bot/.env
 DISCORD_TOKEN=你的_Discord_Bot_Token
 
 # AWS 認證金鑰（IAM → 使用者 → 安全憑證 → 建立存取金鑰）
-AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+AWS_ACCESS_KEY_ID=XXX
+AWS_SECRET_ACCESS_KEY=XXX
 AWS_REGION=us-east-1
 
 # 若使用 AWS Academy 臨時憑證，需額外加這行
@@ -139,7 +139,7 @@ du -sh discord-layer.zip
 
 **上傳程式碼：**
 
-方式一（推薦）：直接在 Lambda Console 貼上 `lambda_function.py` 的內容
+直接在 Lambda Console 貼上 `lambda_function.py` 的內容
 
 **加入 Layer：**
 
@@ -201,7 +201,8 @@ IAM → 該 Role → **Add permissions → Create inline policy** → JSON 模�
 
 **建立 API：**
 
-1. 前往 **API Gateway → Create API**
+1. 前往 **API Gateway （直接用搜尋的因為我也找不到）→ Create API**
+![search_api_gateway](./images/search_api_gateway.png)
 2. 選擇 **REST API**（不是 HTTP API），點 **Build**
 3. API name：`discord-bot-api`
 4. 點選 **Create API**
