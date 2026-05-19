@@ -91,7 +91,7 @@ python bot.py
 
 `pynacl` 含有編譯過的 C 擴充碼，Lambda 的執行環境是 Amazon Linux，必須使用相容的二進位檔。
 
-**在 macOS / Linux 終端機執行：**
+**在 PowerShell 終端機執行：**
 
 ```bash
 cd lambda_bot
@@ -117,36 +117,29 @@ du -sh discord-layer.zip
 **在 AWS Console 建立 Layer：**
 
 1. 前往 **Lambda → Layers → Create layer**
-![function](./images/function.png)
-
+![add_layers](./images/add_layers.png)
 2. Name：`discord-bot-layer`（自取）
-3. 選擇 `Upload a .zip file`，上傳 `discord-layer.zip`
+3. 選擇 `Upload a .zip file`，上傳 `discord-layer.zip` （你剛剛透過終端機壓縮的
 4. Compatible runtimes：勾選 `Python 3.12`
-5. 點選 **Create**，記下 Layer ARN
+![create_layer](./images/create_layer.png)
+5. 點選 **Create**，記下 Layer ARN （另外記下來，我推薦notepad
 
 ---
 
 #### 步驟 2：建立 Lambda 函式
 
 1. 前往 **Lambda → Functions → Create function**
+![function](./images/function.png)
 2. 選擇 **Author from scratch**
 3. 填入：
    - Function name：`discord-ai-bot`（自取）
    - Runtime：**Python 3.12**
-   - Architecture：`x86_64`
 4. 點選 **Create function**
+![create_functions](./images/create_functions.png)
 
 **上傳程式碼：**
 
 方式一（推薦）：直接在 Lambda Console 貼上 `lambda_function.py` 的內容
-
-方式二：在終端機打包並上傳
-
-```bash
-cd lambda_bot
-zip Compress-Archive -Path python -DestinatioinPath discord-layer.zip
-# 在 Lambda Console → Code → Upload from → .zip file
-```
 
 **加入 Layer：**
 
