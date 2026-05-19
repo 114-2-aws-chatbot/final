@@ -12,7 +12,7 @@
 #### 步驟1. 建立python 虛擬環境＆安裝套件
 
 ```bash 
-cd 
+cd aws_final （進到clone 下來的資料夾）
 python -m venv venv
 
 # Power Shell
@@ -47,7 +47,7 @@ AWS_REGION=us-east-1
 # 若使用 AWS Academy 臨時憑證，需額外加這行
 # AWS_SESSION_TOKEN=你的_Session_Token
 
-# 選填：切換 Bedrock 模型（預設 amazon.titan-text-lite-v1）
+# 選填：切換 Bedrock 模型
 # BEDROCK_MODEL_ID=amazon.nova-lite-v1
 ```
 
