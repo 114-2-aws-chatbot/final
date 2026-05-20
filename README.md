@@ -9,10 +9,14 @@
 - AWS 帳號
 - Discord 帳號，並已經複製下所有key
 
+#### 步驟0. 下載Git
+<https://git-scm.com/install/windows>
+
 #### 步驟1. 建立python 虛擬環境＆安裝套件
 
 ```bash 
-cd aws_final （進到clone 下來的資料夾）
+git clone https://github.com/114-2-aws-chatbot/final
+cd final （進到clone 下來的資料夾）
 python -m venv venv
 
 # Power Shell, 下面都用Power Shell!!!
@@ -27,7 +31,7 @@ pip install -r requirements.txt
 建立.env 檔案（這個檔案裡面裝的是你們的key 很重要不能流出去
 
 ```bash
-cp .env.example ./lambda_bot/.env
+cp .env.example ./.env 
 ```
 這個時候會看到lambda_bot 這個資料夾裡面多了.env 檔案
 
@@ -71,7 +75,13 @@ AWS_REGION=us-east-1
 ![copy_url](./images/copy_url.png)
 ![add_to_server](./images/add_to_server.png)
 
-#### 步驟 6：啟動機器人
+#### 步驟 8: 安裝套件
+```bash
+pip install discord.py
+pip install python-dotenv
+```
+
+#### 步驟 7：啟動機器人
 
 ```bash
 python bot.py
@@ -98,19 +108,19 @@ cd lambda_bot
 # 建立 python/ 目錄（Lambda Layer 的固定結構）
 mkdir -p python
 
-# 使用 manylinux2014_x86_64 平台，下載 Linux 相容的版本
-pip install pynacl requests \
-    -t python/ \
-    --platform manylinux2014_x86_64 \
-    --python-version 3.12 \
-    --only-binary=:all: \
+# 改成powershell 了
+pip install pynacl requests `
+    -t python/ `
+    --platform manylinux2014_x86_64 `
+    --python-version 3.12 `
+    --only-binary=:all: `
     --upgrade
 
 # 打包成 zip
-zip -r discord-layer.zip python/
+Compress-Archive -Path python -DestinationPath discord-layer.zip 
 
-# 確認大小（正常約 5~8 MB）
-du -sh discord-layer.zip
+# 確認大小（正常約 3~5 MB）
+(Get-Item discord-layer.zip).Length / 1MB
 ```
 
 **在 AWS Console 建立 Layer：**
