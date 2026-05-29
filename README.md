@@ -145,9 +145,13 @@ Token 是讓 Discord 准許機器人通行的暗號，做任何動作都需要 T
 4. 描述標籤可不填寫，但填的話可幫助你理解該金鑰用處。直接按建立「Create Access Key」即可。
 5. 將存取金鑰(Acess Key)和私密存取金鑰(Secret Key)複製下來，最好連.csv都載下來避免之後忘記。**<font color = "red">關閉此網頁後，你將永遠無法再看到這組 Secret Key。</font>** 
 ![image](https://hackmd.io/_uploads/r1IcZDi1fe.png)
-6. 剛剛那頁「Security Credentials」往下滑，可以看到自己現在有創哪些「Acess Key」，但「Secret Key」已經看不到了。
+6. 剛剛那頁「Security Credentials」往下滑，可以看到自己現在有創哪些「Access Key」，但「Secret Key」已經看不到了。
 
-
+在你的電腦打開 .env ，填入 Access Key 和 Secret Key。
+```
+AWS_ACCESS_KEY_ID= Access Key
+AWS_SECRET_ACCESS_KEY= Secret Key
+```
 
 ### 如果忘記了Secret Key的補救措施
 若是忘記Secret Key那就只好刪掉重創一個(ps.一個使用者(User)最多有兩個存取金鑰)。
