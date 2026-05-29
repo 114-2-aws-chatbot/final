@@ -120,8 +120,7 @@ Token 是讓 Discord 准許機器人通行的暗號，做任何動作都需要 T
 ![image](https://hackmd.io/_uploads/BJ5unleabl.png)
 <br>
 9. 點選確定要做、並輸入密碼後，可獲得新權杖。記得複製並貼到上述的.env！
-![image](https://hackmd.io/_uploads/ryzs-TxaWl.png)
-10. 從左側欄概要進入一般資訊，複製應用程式 ID 貼到 .env 的 DISCORD_APP_ID ；複製公開金鑰到 .env 的 DISCORD_PUBLIC_KEY ![image](https://hackmd.io/_uploads/B1tBPPsyfg.png)
+10. 從左側欄概要進入一般資訊，複製應用程式 ID 貼到 .env 的 DISCORD_APP_ID ；複製公開金鑰到 .env 的 DISCORD_PUBLIC_KEY 
 
 
 
