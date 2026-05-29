@@ -221,7 +221,7 @@ pip install pynacl requests pip install pynacl requests -t python/ --platform ma
 
 # 打包成 zip
 zip -r discord-layer.zip python/ # Mac 或 Linux
-Compress-Archive -Path python\* -DestinationPath discord-layer.zip -Force # PowerShell
+Compress-Archive -Path python -DestinationPath discord-layer.zip -Force # PowerShell
 
 # 確認大小（正常約 3~5 MB）
 du -sh discord-layer.zip # Mac 或 Linux
