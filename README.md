@@ -16,13 +16,28 @@
 
 ```bash 
 git clone https://github.com/114-2-aws-chatbot/final
-cd final （進到clone 下來的資料夾）
+```
+進到clone 下來的資料夾
+```bash
+cd final 
+```
+
+在當前目錄下建立一個名為 venv 的 Python「虛擬環境」
+```bash
 python -m venv venv
+```
 
-# Power Shell, 下面都用Power Shell!!!
+Power Shell, 下面都用Power Shell!!!
+```bash
+powershell
+```
+
+```bash
 .\venv\Scripts\Activate.ps1
-(出現(venv) 在前面就好了喔）
+```
 
+出現(venv) 在前面就好了喔
+```bash
 pip install -r requirements.txt
 ```
 
@@ -33,7 +48,7 @@ pip install -r requirements.txt
 ```bash
 cp .env.example ./.env 
 ```
-這個時候會看到lambda_bot 這個資料夾裡面多了.env 檔案
+這個時候會看到 lambda_bot 這個資料夾裡面多了.env 檔案
 
 #### 步驟3. 設定環境變數
 
@@ -55,6 +70,14 @@ AWS_REGION=us-east-1
 # 選填：切換 Bedrock 模型
 # BEDROCK_MODEL_ID=amazon.nova-lite-v1
 ```
+## 在 Discord 建立一個自己的伺服器
+在創一隻聊天機器人之前，我們要先創建一個自己的伺服器、方便自己測試。
+1. 點選左側頭像欄位最底下的加號
+<img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/20dffefd-cf89-48ed-b4c6-9e867d5c7a4e" />
+2. 點「建立自己的」
+3. 點「我和我的好友」
+4. 填入自己喜歡的伺服器名字
+這樣就創好了！
 
 ## Token & Key 的獲取方式
 ### Discord Developer--機器人設置及權限
@@ -212,24 +235,43 @@ AWS_SECRET_ACCESS_KEY= Secret Key
 
 `pynacl` 含有編譯過的 C 擴充碼，Lambda 的執行環境是 Amazon Linux，必須使用相容的二進位檔。
 
+
+
 **在 PowerShell 終端機執行：**
 
+切換到 lambda_bot 資料夾
 ```bash
 cd lambda_bot
+```
 
-# 建立 python/ 目錄（Lambda Layer 的固定結構）
+建立 python/ 目錄（Lambda Layer 的固定結構）
+```bash
 mkdir -p python
+```
 
-# 使用 manylinux2014_x86_64 平台，下載 Linux 相容的版本
+使用 manylinux2014_x86_64 平台，下載 Linux 相容的版本
+```bash
 pip install pynacl requests pip install pynacl requests -t python/ --platform manylinux2014_x86_64 --python-version 3.12 --only-binary=:all: --upgrade
+```
 
-# 打包成 zip
-zip -r discord-layer.zip python/ # Mac 或 Linux
-Compress-Archive -Path python -DestinationPath discord-layer.zip -Force # PowerShell
+打包成 zip：
+Mac 或 Linux
+```bash
+zip -r discord-layer.zip python/
+```
+PowerShell
+```bash
+Compress-Archive -Path python -DestinationPath discord-layer.zip -Force 
+```
 
-# 確認大小（正常約 3~5 MB）
-du -sh discord-layer.zip # Mac 或 Linux
-[math]::Round((Get-Item discord-layer.zip).Length / 1MB, 2) # Powershell
+確認大小（正常約 3~5 MB）：
+Mac 或 Linux
+```bash
+du -sh discord-layer.zip 
+```
+Powershell
+```bash
+[math]::Round((Get-Item discord-layer.zip).Length / 1MB, 2) 
 ```
 
 **在 AWS Console 建立 Layer：**
