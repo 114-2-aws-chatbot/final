@@ -154,7 +154,51 @@ Token 是讓 Discord 准許機器人通行的暗號，做任何動作都需要 T
 
 2. 刪掉後再照上面步驟創個新的。
 
+## 傳統 Bot 
+【架構一：傳統 Bot — WebSocket 長連線】
+
+  你的電腦 / EC2
+  ┌─────────────────────────────────┐
+  │  python bot.py                  │
+  │                                 │
+  │  Discord Gateway (WebSocket) ◄──┼──── Discord 伺服器
+  │  持續監聽所有訊息事件             │
+  │                                 │
+  │  當收到 @ (或其他事件) 時：       │
+  │    ↓ 呼叫 AWS Bedrock           │
+  │    ↓ 回傳答案到 Discord          │
+  └─────────────────────────────────┘
+
+這是傳統 Bot 的程式碼連結，從 google colab 操作。(若有時間將直接從這裡操作)
+  https://colab.research.google.com/drive/1gK9q0VrLNMVHZrjmW2y-Z4DyDvLfn22E?usp=sharing
+
 ---
+
+## Lambda Bot
+我們主要會運用 Lambda 來完成 Discord Bot，以下是 Lambda Bot 架構
+```
+【架構二：Lambda Bot — Webhook 事件驅動】
+
+  使用者輸入 /ask
+      │
+      ▼
+  Discord 伺服器
+      │  HTTP POST（帶簽名）
+      ▼
+  API Gateway  ──────────────────────────────────────┐
+      │                                              │
+      ▼                                              │
+  Lambda (Path A)                                    │
+  ① 驗證 Discord Ed25519 簽名                        │
+  ② 非同步觸發自身（fire-and-forget）                 │
+  ③ 立即回 Type 5（< 1 秒）── Discord 顯示「思考中」  │
+      │                                              │
+      │ Lambda.invoke(Event)                         │
+      ▼                                              │
+  Lambda (Path B - AI 工作者)                        │
+  ④ 呼叫 Amazon Bedrock（5~10 秒）                   │
+  ⑤ PATCH Discord Webhook 補發答案 ──────────────────┘
+```
 
 ## 部署AWS (很複雜很累)
 #### 步驟 1：打包 Lambda Layer
