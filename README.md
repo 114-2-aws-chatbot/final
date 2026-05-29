@@ -123,9 +123,6 @@ Token 是讓 Discord 准許機器人通行的暗號，做任何動作都需要 T
 <br>
 12.  從左側欄概要進入一般資訊，複製應用程式 ID 貼到 .env 的 DISCORD_APP_ID ；複製公開金鑰到 .env 的 DISCORD_PUBLIC_KEY 
 
-
-
-
 ---
 
 ## AWS 通行證申請：獲取 Access Key 讓程式與雲端連線
@@ -159,9 +156,9 @@ Token 是讓 Discord 准許機器人通行的暗號，做任何動作都需要 T
 
 2. 刪掉後再照上面步驟創個新的。
 
-## 傳統 Bot 
+## 傳統 Bot (時間夠會講)
 【架構一：傳統 Bot — WebSocket 長連線】
-
+```
   你的電腦 / EC2
   ┌─────────────────────────────────┐
   │  python bot.py                  │
@@ -173,6 +170,7 @@ Token 是讓 Discord 准許機器人通行的暗號，做任何動作都需要 T
   │    ↓ 呼叫 AWS Bedrock           │
   │    ↓ 回傳答案到 Discord          │
   └─────────────────────────────────┘
+```
 
 這是傳統 Bot 的程式碼連結，從 google colab 操作。(若有時間將直接從這裡操作)
   https://colab.research.google.com/drive/1gK9q0VrLNMVHZrjmW2y-Z4DyDvLfn22E?usp=sharing
@@ -281,7 +279,7 @@ du -sh discord-layer.zip # Mac 或 Linux
 1. 前往 **API Gateway （直接用搜尋的因為我也找不到）→ Create API**
 ![search_api_gateway](./images/search_api_gateway.png)
 2. 選擇 **REST API**（不是 HTTP API），點 **Build**
-3. API name：`discord-bot-api`
+3. API name：`discord-bot-api-座號`
 4. 點選 **Create API**
 ![create_rest_api](./images/create_rest_api.png)
 
@@ -291,7 +289,7 @@ du -sh discord-layer.zip # Mac 或 Linux
 2. 選中 `/discord`，Actions → **Create Method** → 選 `POST` → 勾選打勾
 3. Integration type：**Lambda Function**
 4. 勾選 **Use Lambda Proxy Integration**（重要！Discord Header 才能傳進 Lambda）
-5. Lambda Function：填入你的函式名稱 `discord-ai-bot`
+5. Lambda Function：填入你的函式名稱 `discord-ai-bot-座號`
 6. 點 **Save**，彈窗點 **OK** 授權
 
 **部署 API：**
@@ -313,7 +311,7 @@ Lambda 函式 → **Configuration → Environment variables → Edit → Add env
 | `DISCORD_PUBLIC_KEY` | `abcd1234...`（64 字元） | Developer Portal → General Information → Public Key |
 | `DISCORD_APP_ID` | `1234567890` | Developer Portal → General Information → Application ID |
 | `DISCORD_TOKEN` | `MTQ4NT...` | Developer Portal → Bot → Token |
-| `BEDROCK_MODEL_ID` | `amazon.titan-text-lite-v1` | 選填，可換成其他模型 |
+| `BEDROCK_MODEL_ID` | `amazon.nova-lite-v1` | 選填，可換成其他模型 |
 | `AWS_BEDROCK_REGION` | `us-east-1` | 選填，Bedrock 服務所在區域 |
 
 填完後點選 **Save**。
