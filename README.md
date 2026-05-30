@@ -255,7 +255,7 @@ mkdir -p python
 
 使用 manylinux2014_x86_64 平台，下載 Linux 相容的版本
 ```bash
-pip install pynacl requests pip install pynacl requests -t python/ --platform manylinux2014_x86_64 --python-version 3.12 --only-binary=:all: --upgrade
+pip install pynacl requests -t python/ --platform manylinux2014_x86_64 --python-version 3.12 --only-binary=:all: --upgrade
 ```
 
 打包成 zip：
