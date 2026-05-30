@@ -27,16 +27,16 @@ cd final
 python -m venv venv
 ```
 
-Power Shell, 下面都用Power Shell!!!
+**Power Shell, 下面都用Power Shell!!!**(若原先在CMD的，這是切換指令)
 ```bash
 powershell
 ```
 
+啟動剛剛建立的 venv 環境，出現(venv) 在前面就好了喔！
 ```bash
 .\venv\Scripts\Activate.ps1
 ```
-
-出現(venv) 在前面就好了喔
+reqirement.txt 裡有我們所需的套件，以下指令可以執行下載這些套件。
 ```bash
 pip install -r requirements.txt
 ```
@@ -70,12 +70,16 @@ AWS_REGION=us-east-1
 # 選填：切換 Bedrock 模型
 # BEDROCK_MODEL_ID=amazon.nova-lite-v1
 ```
-## 在 Discord 建立一個自己的伺服器
+## Discord 介紹 & 在 Discord 建立一個自己的伺服器
+Discord 是個功能很多的社群平台，以下我會介紹一下 Discord 平常使用的介面。
 在創一隻聊天機器人之前，我們要先創建一個自己的伺服器、方便自己測試。
 1. 點選左側頭像欄位最底下的加號
 <img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/20dffefd-cf89-48ed-b4c6-9e867d5c7a4e" />
+<br>
 2. 點「建立自己的」
+<br>
 3. 點「我和我的好友」
+<br>
 4. 填入自己喜歡的伺服器名字
 這樣就創好了！
 
@@ -255,21 +259,23 @@ pip install pynacl requests pip install pynacl requests -t python/ --platform ma
 ```
 
 打包成 zip：
-Mac 或 Linux
+<br>
+(Mac 或 Linux 的指令)
 ```bash
 zip -r discord-layer.zip python/
 ```
-PowerShell
+(PowerShell 的指令)
 ```bash
 Compress-Archive -Path python -DestinationPath discord-layer.zip -Force 
 ```
 
 確認大小（正常約 3~5 MB）：
-Mac 或 Linux
+<br>
+(Mac 或 Linux 的指令)
 ```bash
 du -sh discord-layer.zip 
 ```
-Powershell
+(Powershell 的指令)
 ```bash
 [math]::Round((Get-Item discord-layer.zip).Length / 1MB, 2) 
 ```
