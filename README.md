@@ -152,7 +152,10 @@ Token 是讓 Discord 准許機器人通行的暗號，做任何動作都需要 T
 
 ---
 
-## AWS 通行證申請：獲取 Access Key 讓程式與雲端連線
+## 登入 User & AWS 通行證申請：獲取 Access Key 讓程式與雲端連線
+## User 帳密
+帳號：DC_BOT_座號
+密碼：dcbot座號++
 
 ### 為什麼我們需要這把鑰匙？
 在上一份講義中，我們拿到了 Discord 的暗號；現在，我們要幫電腦端的程式申請一組 AWS 通行證——Access Key。這組金鑰就像是你的虛擬身分證，讓你的電腦有權限去呼叫 AWS 的 Bedrock AI 模型。
